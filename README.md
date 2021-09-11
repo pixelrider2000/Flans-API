@@ -6,8 +6,8 @@ You must add the API to your libraries to gain access to all methods. You must a
 
 # Explanation of all methods
 - BulletHandler:
-  > getBulletOwner(String uuid)
-      uuid : UUID of the bullet / entity that might be a bullet
+  - getBulletOwner(String uuid)
+     > uuid : UUID of the bullet / entity that might be a bullet
     
 - VehicleHandler:
   - putPlayerInDriveable(String playerUUID, String vehicleUUID)
