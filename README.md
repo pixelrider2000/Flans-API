@@ -4,6 +4,19 @@ This API is meant for an easy connection between Bukkit/Spiggot plugins and Flan
 # How does it work?
 You must add the API to your libraries to gain access to all methods. You must also upload the API onto your minecraft server as well as the client ("mods"-folder).
 
+# Example code
+	public void onEntityDamageByEntity(EntityDamageByEntityEvent e) {
+            //Checks if the damager is a bullet and then returns the name of the player who fired it
+            
+		BulletHandler bHandler = new BulletHandler();
+		String owner = bHandler.getBulletOwner(e.getDamager().getUniqueId().toString());
+            if(owner == null) return;
+    	
+		//Do stuff...
+	}
+  
+  
+
 # Explanation of all methods
 - BulletHandler:
   - getBulletOwner(String uuid)
