@@ -14,8 +14,30 @@ You must add the API to your libraries to gain access to all methods. You must a
     	
 		//Do stuff...
 	}
-  
-  
+	
+> Example two
+	
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		if(sender instanceof Player) {
+			Player p = (Player) sender;
+			if(args.length == 1) {
+				if(args[0].equalsIgnoreCase("test")) {
+					if(p.hasPermission("flansapi.test")) {
+						VehicleHandler vHandler = new VehicleHandler();
+						
+						//The player is standing on a chest thus these coordinates are of the chest
+						int cx = p.getLocation().getBlock().getX(),
+						cy = p.getLocation().getBlock().getY(),
+						cz = p.getLocation().getBlock().getZ();
+						
+						vHandler.spawnVehicle(p.getLocation().getWorld().getName(), cx, cy, cz, "vehicle", (cx+15), (cy+10), cz);
+						p.sendMessage("§6You successfully spawned a vehicle!");
+					}
+				}
+			} 
+		} 
+		return false;
+	}
 
 # Explanation of all methods
 - BulletHandler:
