@@ -10,11 +10,12 @@ You must add the API to your libraries to gain access to all methods. You must a
       uuid : UUID of the bullet / entity that might be a bullet
     
 - VehicleHandler:
-  > putPlayerInDriveable(String playerUUID, String vehicleUUID)
-      playerUUID : UUID of player,
+  - putPlayerInDriveable(String playerUUID, String vehicleUUID)
+    > playerUUID : UUID of player,
       vehicleUUID : UUID of vehicle to put the player in
-  > spawnDriveable(String worldName, int cx, int cy, int cz, String type, int sx, int sy, int sz, float rotation)
-      Explanation: The driveable to spawn is the first item in the given chest | 
+      
+  - spawnDriveable(String worldName, int cx, int cy, int cz, String type, int sx, int sy, int sz, float rotation)
+    > Explanation: The driveable to spawn is the first item in the given chest | 
       worldName : name of the world to spawn the driveable in,
       cx : x coordinate of chest,
       cy : y coordinate of chest,
