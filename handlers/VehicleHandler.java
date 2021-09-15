@@ -6,8 +6,6 @@ import com.flansmod.common.driveables.EntitySeat;
 import com.flansmod.common.driveables.EntityVehicle;
 import com.flansmod.common.driveables.ItemPlane;
 import com.flansmod.common.driveables.ItemVehicle;
-import com.flansmod.common.types.EnumType;
-import com.flansmod.common.types.TypeFile;
 
 import flansapi.main.Main;
 import net.minecraft.block.BlockChest;
