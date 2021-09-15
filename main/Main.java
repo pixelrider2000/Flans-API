@@ -1,7 +1,5 @@
 package flansapi.main;
 
-import java.util.List;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -11,11 +9,16 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import flansapi.commands.TestCommand;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.World;
 
-@Mod(modid = "fapi", name = "FlansAPI", version = "1.0")
+@Mod(modid = Main.MODID, name = "FlansAPI", version = "1.0")
 
 public class Main {
+	
+	public static final String MODID = "flansapi";
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
@@ -38,14 +41,39 @@ public class Main {
 		cm.registerCommand(new TestCommand());
 	}
 	
-	public static Entity entityFromUUID(String uuid) {
-		List<Entity> entityList = MinecraftServer.getServer().worldServerForDimension(0).loadedEntityList;
-		System.out.println("Size: " + entityList.size());
-		
-		for(Entity e : entityList) {
-			if(e.getUniqueID().toString().equals(uuid)) return e;
+	public static EntityPlayer entityPlayerFromName(String playerName) {
+		for(World w : MinecraftServer.getServer().worldServers) {
+			if(w.getPlayerEntityByName(playerName) != null) {
+				return w.getPlayerEntityByName(playerName);
+			}
 		}
 		return null;
+	}
+	
+	public static Entity entityFromUUID(String uuid) {
+		for(World w : MinecraftServer.getServer().worldServers) {		
+			for(Object o: w.loadedEntityList) {
+				if(o instanceof Entity) {
+					Entity e = (Entity) o;
+					if(e.getUniqueID().toString().equals(uuid)) return e;
+				}
+			}
+		}		
+		return null;
+	}
+	
+	public static void putItemInPlayerTopInv(EntityPlayer p, ItemStack item) {
+		for(int j = 9; j < p.inventory.getSizeInventory(); j++) {
+			ItemStack stack = p.inventory.getStackInSlot(j);
+			if(stack == null) {
+				p.inventory.setInventorySlotContents(j, item);
+				break;
+			} else if(stack.getItem().equals(item.getItem()) && stack.getMaxStackSize() > stack.stackSize && stack.getItemDamage() == item.getItemDamage()) {
+				stack.stackSize++;
+				p.inventory.setInventorySlotContents(j, stack);
+				break;
+			}
+		}
 	}
 	
 }
