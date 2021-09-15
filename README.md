@@ -10,4 +10,6 @@ You must add the API to your libraries to gain access to all methods. You must a
 # Explanation of all methods
   - BulletHandler: https://github.com/pixelrider2000/Flans-API/wiki/BulletHandler
     
-- VehicleHandler: https://github.com/pixelrider2000/Flans-API/wiki/VehicleHandler
+  - VehicleHandler: https://github.com/pixelrider2000/Flans-API/wiki/VehicleHandler
+
+  - ItemHandler: https://github.com/pixelrider2000/Flans-API/wiki/ItemHandler
