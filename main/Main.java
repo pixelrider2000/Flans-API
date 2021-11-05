@@ -14,9 +14,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 
-@Mod(modid = Main.MODID, name = "FlansAPI", version = "1.0")
+@Mod(modid = Main.MODID, name = "FlansAPI", version = "1.2")
 
 public class Main {
+	
+	public enum InventorySection {
+		CARGO, GUNS, SHELLS, MINES;
+	}
 	
 	public static final String MODID = "flansapi";
 	
@@ -32,7 +36,7 @@ public class Main {
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
-		
+		//MinecraftForge.EVENT_BUS.register(new OnPlayerHit());
 	}
 	
 	@EventHandler
