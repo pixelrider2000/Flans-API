@@ -2,10 +2,10 @@ package flansapi.commands;
 
 import flansapi.handlers.BulletHandler;
 import flansapi.handlers.ItemHandler;
+import flansapi.handlers.VehicleHandler;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 
 public class TestCommand extends CommandBase {
 
@@ -25,10 +25,9 @@ public class TestCommand extends CommandBase {
 			EntityPlayer p = (EntityPlayer) sender;
 			BulletHandler bHandler = new BulletHandler();
 			ItemHandler itemHandler = new ItemHandler();
-			if(p.getHeldItem() == null) return;
-			int id = Item.getIdFromItem(p.getHeldItem().getItem());			
+			VehicleHandler vHandler = new VehicleHandler();
+			//int id = Item.getIdFromItem(p.getHeldItem().getItem());			
 			
-			System.out.println("Executed!");
 		}
 	}
 
