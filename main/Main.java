@@ -14,7 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 
-@Mod(modid = Main.MODID, name = "FlansAPI", version = "1.2")
+@Mod(modid = Main.MODID, name = "FlansAPI", version = "1.3")
 
 public class Main {
 	
@@ -36,7 +36,7 @@ public class Main {
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
-		//MinecraftForge.EVENT_BUS.register(new OnPlayerHit());
+		//MinecraftForge.EVENT_BUS.register(new EntityHandler());
 	}
 	
 	@EventHandler
