@@ -21,14 +21,16 @@ public class TestCommand extends CommandBase {
 
 	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
+		/*
 		if(sender instanceof EntityPlayer) {	
 			EntityPlayer p = (EntityPlayer) sender;
 			BulletHandler bHandler = new BulletHandler();
 			ItemHandler itemHandler = new ItemHandler();
 			VehicleHandler vHandler = new VehicleHandler();
-			//int id = Item.getIdFromItem(p.getHeldItem().getItem());			
+			//int id = Item.getIdFromItem(p.getHeldItem().getItem());		
 			
 		}
+		*/
 	}
 
 }
