@@ -67,7 +67,7 @@ public class ItemHandler {
 		return (((ItemBullet)Item.getItemById(itemID)).type).roundsPerItem;
 	}
 	
-	public void setAmmoAmount(String playerName, int slotOfGun, int rounds, int maxSeperateMagazines) {
+	public void setAmmoAmount(String playerName, int slotOfGun, int rounds, int maxSeperateMagazines, int ammoID) {
 		EntityPlayer p = Main.entityPlayerFromName(playerName);
 		if(p == null || slotOfGun >= p.inventory.getSizeInventory() || slotOfGun < 0) return;
 		ItemStack stack = p.inventory.getStackInSlot(slotOfGun);
@@ -81,6 +81,14 @@ public class ItemHandler {
 			if(possibleBullets.size() == 0) return;
 			
 			ItemStack ammo = new ItemStack(possibleBullets.get(0).getItem());
+			if(ammoID > -1) {
+				for(ShootableType st : possibleBullets) {
+					if(Item.getIdFromItem(st.getItem()) == ammoID) {
+						ammo = new ItemStack(st.getItem());
+						break;
+					}
+				}
+			} 
 			
 			ShootableType bType = null;
 			if(ammo.getItem() instanceof ItemBullet)
